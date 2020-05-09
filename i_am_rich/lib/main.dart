@@ -11,6 +11,11 @@ void main() => runApp(
         ),
         backgroundColor: Colors.blueGrey[900],
       ),
+      body: Center(
+        child: Image(
+          image: NetworkImage('https://image.shutterstock.com/z/stock-photo-white-transparent-leaf-on-mirror-surface-with-reflection-on-turquoise-background-macro-artistic-1029171697.jpg'),
+        ),
+      ),
     ),
   ),
 );
