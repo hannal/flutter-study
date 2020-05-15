@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
             children: <Widget>[
               Container(
                 height: 100.0,
-                width: 300.0,
+                width: 100.0,
                 color: Colors.white,
                 child: Text('container 1'),
               ),
@@ -36,6 +36,10 @@ class MyApp extends StatelessWidget {
                 width: 100.0,
                 color: Colors.black26,
                 child: Text('container 3'),
+              ),
+              Container(
+                height: 10.0,
+                width: double.infinity,
               ),
             ],
           ),
