@@ -385,3 +385,5 @@ iOSInjectionProject/
 Java.gitignore
 
 .idea/
+ios/
+android/
