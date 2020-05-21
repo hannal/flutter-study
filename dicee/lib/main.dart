@@ -31,8 +31,16 @@ class _DicePageState extends State<DicePage> {
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
-        Image(image: AssetImage('images/dice1.png')),
-        Image(image: AssetImage('images/dice2.png')),
+        Expanded(
+          child: Image(
+            image: AssetImage('images/dice1.png'),
+          ),
+        ),
+        Expanded(
+          child: Image(
+            image: AssetImage('images/dice2.png'),
+          ),
+        ),
       ],
     );
   }
