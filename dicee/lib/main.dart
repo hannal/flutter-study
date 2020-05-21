@@ -29,7 +29,11 @@ class _DicePageState extends State<DicePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Row(
+      children: <Widget>[
+        Image(image: AssetImage('images/dice1.png')),
+        Image(image: AssetImage('images/dice2.png')),
+      ],
     );
   }
 }
