@@ -29,17 +29,19 @@ class _DicePageState extends State<DicePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          flex: 2,
-          child: Image.asset('images/dice1.png'),
-        ),
-        Expanded(
-          flex: 1,
-          child: Image.asset('images/dice6.png'),
-        ),
-      ],
+    return Center(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Image.asset('images/dice1.png'),
+          ),
+          Expanded(
+            flex: 1,
+            child: Image.asset('images/dice6.png'),
+          ),
+        ],
+      ),
     );
   }
 }
