@@ -6,35 +6,32 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Ask me anything',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: BallPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+class BallPage extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _BallPageState createState() => _BallPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-
+class _BallPageState extends State<BallPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('Ask me anything'),
+        backgroundColor: Colors.blue[900],
       ),
-      body: Center(
-        child: Column(),
+      body: Container(
+        color: Colors.blue,
       ),
     );
   }
 }
+
