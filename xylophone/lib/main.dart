@@ -10,6 +10,15 @@ class MyApp extends StatelessWidget {
     player.play(filename);
   }
 
+  Widget buildKey({Color color, String sound}) {
+    return Expanded(
+      child: FlatButton(
+        color: color,
+        onPressed: () { playSound('$sound.wav'); },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,48 +32,13 @@ class MyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Expanded(
-                child: FlatButton(
-                  color: Colors.red,
-                  onPressed: () { playSound('note1.wav'); },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.orange,
-                  onPressed: () { playSound('note2.wav'); },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.yellow,
-                  onPressed: () { playSound('note3.wav'); },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.green,
-                  onPressed: () { playSound('note4.wav'); },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.teal,
-                  onPressed: () { playSound('note5.wav'); },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.blue,
-                  onPressed: () { playSound('note6.wav'); },
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                  color: Colors.purple,
-                  onPressed: () { playSound('note7.wav'); },
-                ),
-              ),
+              buildKey(color: Colors.red, sound: 'note1'),
+              buildKey(color: Colors.orange, sound: 'note2'),
+              buildKey(color: Colors.yellow, sound: 'note3'),
+              buildKey(color: Colors.green, sound: 'note4'),
+              buildKey(color: Colors.teal, sound: 'note5'),
+              buildKey(color: Colors.blue, sound: 'note6'),
+              buildKey(color: Colors.purple, sound: 'note7'),
             ],
           ),
         ),
