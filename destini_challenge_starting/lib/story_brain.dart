@@ -49,6 +49,8 @@ class StoryBrain {
       _storyIndex = 5;
     } else if (index == 2 && _storyIndex == 2) {
       _storyIndex = 4;
+    } else if (3 <= _storyIndex && _storyIndex <= 5 ) {
+      restart();
     }
   }
 
@@ -62,5 +64,9 @@ class StoryBrain {
 
   String getChoice2() {
     return this._storyData[_storyIndex].choice2;
+  }
+
+  void restart() {
+    _storyIndex = 0;
   }
 }

@@ -53,7 +53,7 @@ class _StoryPageState extends State<StoryPage> {
                 child: FlatButton(
                   onPressed: () {
                     setState(() {
-                      storyBrain.nextStory(2);
+                      storyBrain.nextStory(1);
                     });
                   },
                   color: Colors.red,
@@ -75,7 +75,7 @@ class _StoryPageState extends State<StoryPage> {
                 child: FlatButton(
                   onPressed: () {
                     setState(() {
-                      storyBrain.nextStory(1);
+                      storyBrain.nextStory(2);
                     });
                   },
                   color: Colors.blue,
