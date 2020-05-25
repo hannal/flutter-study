@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     player.play(filename);
   }
 
-  Widget buildKey({Color color, String sound}) {
+  Expanded buildKey({Color color, String sound}) {
     return Expanded(
       child: FlatButton(
         color: color,
