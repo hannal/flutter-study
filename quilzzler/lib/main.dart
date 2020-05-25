@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quilzzler/question.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,7 +30,33 @@ class QuizPage extends StatefulWidget {
 class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
 
-  List<String> myStrings = [];
+  List<Question> questions = [
+    Question(
+      text: 'You can lead a cow down stairs but not up stairs',
+      answer: false,
+    ),
+    Question(
+      text: 'Approximately one quarter of human bones are in the feet.',
+      answer: true,
+    ),
+    Question(
+      text: 'A slug\'s blood is green.',
+      answer: true,
+    ),
+  ];
+
+  int questionNumber = 0;
+
+  void answer(bool answer) {
+    if (questionNumber + 1 >= questions.length) {
+      return;
+    }
+
+    setState(() {
+      questionNumber++;
+      scoreKeeper.add(Icon(Icons.check, color: Colors.green));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +70,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                'This is where the question text will go.',
+                questions[questionNumber].text,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -58,9 +85,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(15.0),
             child: FlatButton(
               onPressed: () {
-                setState(() {
-                  scoreKeeper.add(Icon(Icons.check, color: Colors.green));
-                });
+                answer(true);
               },
               color: Colors.green,
               child: Text(
@@ -79,9 +104,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: const EdgeInsets.all(15.0),
             child: FlatButton(
               onPressed: () {
-                setState(() {
-                  scoreKeeper.add(Icon(Icons.close, color: Colors.red));
-                });
+                answer(false);
               },
               color: Colors.red,
               child: Text(
