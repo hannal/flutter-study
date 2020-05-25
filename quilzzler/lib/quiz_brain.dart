@@ -20,10 +20,12 @@ class QuizBrain {
   ];
 
   void nextQuestion() {
-    if (_questionNumber < _questions.length - 1) {
+    if (this.isOnProgress) {
       _questionNumber++;
     }
   }
+
+  bool get isOnProgress => _questionNumber < _questions.length - 1;
 
   String getQuestionText() {
     return _questions[_questionNumber].text;

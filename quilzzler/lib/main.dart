@@ -33,15 +33,13 @@ class _QuizPageState extends State<QuizPage> {
   List<Icon> scoreKeeper = [];
 
   void answer(bool answer) {
-    bool correctAnswer = quizBrain.getQuestionAnswer() == answer;
-
     setState(() {
-      quizBrain.nextQuestion();
-      if (correctAnswer == true) {
+      if (quizBrain.getQuestionAnswer() == answer) {
         scoreKeeper.add(Icon(Icons.check, color: Colors.green));
       } else {
         scoreKeeper.add(Icon(Icons.close, color: Colors.red));
       }
+      quizBrain.nextQuestion();
     });
   }
 
