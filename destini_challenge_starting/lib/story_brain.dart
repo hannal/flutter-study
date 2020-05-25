@@ -36,6 +36,22 @@ class StoryBrain {
         choice2: '')
   ];
 
+  void nextStory(int index) {
+    if (index == 1 && _storyIndex == 0) {
+      _storyIndex = 2;
+    } else if (index == 2 && _storyIndex == 0) {
+      _storyIndex = 1;
+    } else if (index == 1 && _storyIndex == 1) {
+      _storyIndex = 2;
+    } else if (index == 2 && _storyIndex == 1) {
+      _storyIndex = 3;
+    } else if (index == 1 && _storyIndex == 2) {
+      _storyIndex = 5;
+    } else if (index == 2 && _storyIndex == 2) {
+      _storyIndex = 4;
+    }
+  }
+
   String getStory() {
     return this._storyData[_storyIndex].title;
   }
