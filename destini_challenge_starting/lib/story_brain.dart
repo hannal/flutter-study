@@ -39,4 +39,12 @@ class StoryBrain {
   String getStory() {
     return this._storyData[_storyIndex].title;
   }
+
+  String getChoice1() {
+    return this._storyData[_storyIndex].choice1;
+  }
+
+  String getChoice2() {
+    return this._storyData[_storyIndex].choice2;
+  }
 }
