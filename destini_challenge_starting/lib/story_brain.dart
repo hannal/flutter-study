@@ -69,4 +69,6 @@ class StoryBrain {
   void restart() {
     _storyIndex = 0;
   }
+
+  bool get buttonShouldBeVisible => 0 <= _storyIndex && _storyIndex <= 2;
 }
