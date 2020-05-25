@@ -36,26 +36,25 @@ class _DicePageState extends State<DicePage> {
       return Random().nextInt(6) + 1;
     }
 
+    void rollDices() {
+      setState(() {
+        leftDiceNumber = getRandomNumber();
+        rightDiceNumber = getRandomNumber();
+      });
+    }
+
     return Center(
       child: Row(
         children: <Widget>[
           Expanded(
             child: FlatButton(
-              onPressed: () {
-                setState(() {
-                  leftDiceNumber = getRandomNumber();
-                });
-              },
+              onPressed: rollDices,
               child: Image.asset('images/dice$leftDiceNumber.png'),
             ),
           ),
           Expanded(
             child: FlatButton(
-              onPressed: () {
-                setState(() {
-                  rightDiceNumber = getRandomNumber();
-                });
-              },
+              onPressed: rollDices,
                 child: Image.asset('images/dice$rightDiceNumber.png'),
             ),
           ),
