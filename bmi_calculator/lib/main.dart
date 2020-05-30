@@ -10,6 +10,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color(0xFF0A0E21),
         accentColor: Colors.purple,
+        scaffoldBackgroundColor: Color(0xFF0A0E21),
+        textTheme: TextTheme(
+          body1: TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       darkTheme: ThemeData.dark(),
       home: InputPage(),
@@ -29,7 +35,9 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: Text('BMI Calculator'),
       ),
-      body: Center(),
+      body: Center(
+        child: Text('Hello world'),
+      ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
       ),
