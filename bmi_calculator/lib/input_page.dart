@@ -42,31 +42,23 @@ class _InputPageState extends State<InputPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      updateColour(Gender.male);
-                    },
-                    child: ReusableCard(
-                      colour: selectedGender == Gender.male ? activeCardColour : inactiveCardColour,
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.mars,
-                        label: 'Male',
-                      ),
+                  child: ReusableCard(
+                    colour: selectedGender == Gender.male ? activeCardColour : inactiveCardColour,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'Male',
                     ),
+                    onPress: () { updateColour(Gender.male); },
                   ),
                 ),
                 Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      updateColour(Gender.female);
-                    },
-                    child: ReusableCard(
-                      colour: selectedGender == Gender.female ? activeCardColour : inactiveCardColour,
-                      cardChild: IconContent(
-                        icon: FontAwesomeIcons.venus,
-                        label: 'Female',
-                      ),
+                  child: ReusableCard(
+                    colour: selectedGender == Gender.female ? activeCardColour : inactiveCardColour,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'Female',
                     ),
+                    onPress: () { updateColour(Gender.female); },
                   ),
                 ),
               ],
