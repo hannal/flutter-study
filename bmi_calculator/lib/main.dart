@@ -8,7 +8,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'BMI Calculator',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Color(0xFF0A0E21),
+        accentColor: Colors.purple,
       ),
       darkTheme: ThemeData.dark(),
       home: InputPage(),
