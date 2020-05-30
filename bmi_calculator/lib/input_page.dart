@@ -60,6 +60,8 @@ class _InputPageState extends State<InputPage> {
 
 class ReusableCard extends StatelessWidget {
   final Color colour;
+  // const 는 compile 시점에 할당. const dt = DateTime.now(); (X)
+  // final 은 runtime 시점에 할당 가능. final dt = DateTime.now(); (O)
 
   ReusableCard({@required this.colour});
 
