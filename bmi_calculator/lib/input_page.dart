@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const bottomContainerHeight = 80.0;
 const bottomContainerColour = Color(0xFFEB1555);
@@ -24,10 +25,22 @@ class _InputPageState extends State<InputPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Expanded(
-                  child: ReusableCard(colour: activeCardColour),
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.mars,
+                      label: 'Male',
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(colour: activeCardColour),
+                  child: ReusableCard(
+                    colour: activeCardColour,
+                    cardChild: IconContent(
+                      icon: FontAwesomeIcons.venus,
+                      label: 'Female',
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -68,12 +81,39 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
+class IconContent extends StatelessWidget {
+  final String label;
+  final IconData icon;
+
+  IconContent({@required this.label, @required this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Icon(
+          icon,
+          size: 80.0,
+        ),
+        SizedBox(height: 15.0),
+        Text(
+          label,
+          style: TextStyle(fontSize: 18.0, color: Color(0xFF8D8E98)),
+        ),
+      ],
+    );
+  }
+}
+
 class ReusableCard extends StatelessWidget {
-  final Color colour;
   // const 는 compile 시점에 할당. const dt = DateTime.now(); (X)
   // final 은 runtime 시점에 할당 가능. final dt = DateTime.now(); (O)
+  final Color colour;
 
-  ReusableCard({@required this.colour});
+  final Widget cardChild;
+
+  ReusableCard({@required this.colour, this.cardChild});
 
   @override
   Widget build(BuildContext context) {
@@ -85,6 +125,7 @@ class ReusableCard extends StatelessWidget {
         color: colour,
         borderRadius: BorderRadius.circular(10.0),
       ),
+      child: cardChild,
     );
   }
 }
