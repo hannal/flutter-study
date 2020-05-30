@@ -13,8 +13,6 @@ class ReusableCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 200.0,
-      width: 170.0,
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         color: colour,
