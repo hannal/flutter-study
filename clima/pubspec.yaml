@@ -27,6 +27,6 @@ flutter:
   fonts:
    - family: Spartan MB
      fonts:
-       - asset: font/SpartanMB-Black.otf
+       - asset: fonts/SpartanMB-Black.otf
          weight: 900
 
