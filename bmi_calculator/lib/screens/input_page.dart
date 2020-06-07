@@ -2,11 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'bottom_button.dart';
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'constants.dart';
-import 'round_icon_button.dart';
+import 'package:bmicalculator/constants.dart';
+import 'package:bmicalculator/components/bottom_button.dart';
+import 'package:bmicalculator/components/icon_content.dart';
+import 'package:bmicalculator/components/reusable_card.dart';
+import 'package:bmicalculator/components/round_icon_button.dart';
 
 class InputPage extends StatefulWidget {
   @override

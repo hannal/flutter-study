@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import 'constants.dart';
+import 'package:bmicalculator/constants.dart';
 
 class IconContent extends StatelessWidget {
   final String label;

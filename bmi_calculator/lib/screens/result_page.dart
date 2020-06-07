@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'reusable_card.dart';
-import 'constants.dart';
+import 'package:bmicalculator/components/reusable_card.dart';
+import 'package:bmicalculator/constants.dart';
 
 class ResultPage extends StatelessWidget {
   @override
