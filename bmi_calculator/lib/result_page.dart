@@ -28,8 +28,12 @@ class ResultPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   Text('Normal', style: kResultTextStyle),
-                  Text('26.7'),
-                  Text('You have'),
+                  Text('26.7', style: kBMITextStyle),
+                  Text(
+                      'Your BMI result is quite low, you should eat more!',
+                      style: kBodyTextStyle,
+                    textAlign: TextAlign.center,
+                  ),
                 ],
               ),
             ),
