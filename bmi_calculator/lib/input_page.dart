@@ -181,18 +181,7 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, '/result-page');
-            },
-            child: Container(
-              color: kBottomContainerColour,
-              margin: EdgeInsets.only(top: 10.0),
-              width: double.infinity,
-              height: kBottomContainerHeight,
-              child: Center(child: Text('Calculate', style: kLargeButtonTextStyle)),
-            ),
-          ),
+          BottomButton(),
         ]
       ),
       floatingActionButton: Theme(
@@ -202,6 +191,25 @@ class _InputPageState extends State<InputPage> {
         child: FloatingActionButton(
           child: Icon(Icons.add),
         ),
+      ),
+    );
+  }
+}
+
+class BottomButton extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/result-page');
+      },
+      child: Container(
+        color: kBottomContainerColour,
+        margin: EdgeInsets.only(top: 10.0),
+        width: double.infinity,
+        height: kBottomContainerHeight,
+        child: Center(child: Text('Calculate', style: kLargeButtonTextStyle)),
       ),
     );
   }
