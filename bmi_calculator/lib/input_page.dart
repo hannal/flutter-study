@@ -1,11 +1,12 @@
 
-import 'package:bmicalculator/result_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'bottom_button.dart';
 import 'icon_content.dart';
 import 'reusable_card.dart';
 import 'constants.dart';
+import 'round_icon_button.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -201,44 +202,4 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class BottomButton extends StatelessWidget {
-
-  final Function onTap;
-  final String buttonTitle;
-
-  BottomButton({@required this.onTap, @required this.buttonTitle});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        color: kBottomContainerColour,
-        margin: EdgeInsets.only(top: 10.0),
-        width: double.infinity,
-        height: kBottomContainerHeight,
-        child: Center(child: Text(buttonTitle, style: kLargeButtonTextStyle)),
-      ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  final Function onPressed;
-  final IconData icon;
-
-  RoundIconButton({this.icon, this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      shape: CircleBorder(),
-      fillColor: Color(0xFF4C4F5E),
-      elevation: 6.0,
-      onPressed: onPressed,
-      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
-      child: Icon(icon, color: Colors.white),
-    );
-  }
-}
 
