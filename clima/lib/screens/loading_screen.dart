@@ -12,6 +12,8 @@ class LoadingScreen extends StatefulWidget {
   _LoadingScreenState createState() => _LoadingScreenState();
 }
 
+const owmAppKey = 'c8a6e3905ccc73f0f84947fc7e14698f';
+
 class _LoadingScreenState extends State<LoadingScreen> {
   double latitude;
   double longitude;
@@ -25,11 +27,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void getLocationData() async {
     Location location = Location();
     await location.getCurrentLocation();
-    latitude = location.latitude;
-    longitude = location.longitude;
-    const appid = 'b6907d289e10d714a6e88b30761fae22';
     NetworkHelper networkHelper = NetworkHelper(
-      'https://samples.openweathermap.org/data/2.5/weather?appid=$appid&lat=$latitude&lon=$longitude'
+      'https://api.openweathermap.org/data/2.5/weather?appid=$owmAppKey&lat=${location.latitude}&lon=${location.longitude}&units=metric'
     );
     final weatherData = await networkHelper.getData();
 
