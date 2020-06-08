@@ -11,13 +11,11 @@ class _PriceScreenState extends State<PriceScreen> {
   String selectedCurrency = 'USD';
 
   List<DropdownMenuItem> getDropdownItems() {
-    List<DropdownMenuItem<String>> items = [];
-    for (String currency in currenciesList) {
-      items.add(
-          DropdownMenuItem(child: Text(currency), value: currency);
-      );
-    }
-    return items;
+    return currenciesList
+        .map((currency) => DropdownMenuItem(
+          child: Text(currency),
+          value: currency,
+        )).toList();
   }
 
   @override
