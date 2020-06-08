@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'dart:io' show Platform;
 
 import 'coin_data.dart';
 
@@ -11,16 +12,42 @@ class PriceScreen extends StatefulWidget {
 class _PriceScreenState extends State<PriceScreen> {
   String selectedCurrency = 'USD';
 
-  List<DropdownMenuItem> getDropdownItems() {
-    return currenciesList
-        .map((currency) => DropdownMenuItem(
-          child: Text(currency),
-          value: currency,
-        )).toList();
+  DropdownButton<String> getAndroidDropdown() {
+    List<DropdownMenuItem> items = currenciesList
+      .map((currency) => DropdownMenuItem(
+        child: Text(currency),
+        value: currency,
+      )).toList();
+    return DropdownButton<String>(
+      onChanged: (String value) {
+        setState(() {
+          selectedCurrency = value;
+        });
+      },
+      value: selectedCurrency,
+      items: items,
+    );
   }
-  List<Text> getPickerItems() {
-    return currenciesList
+
+  CupertinoPicker getiOSPicker() {
+    List<Text> items = currenciesList
         .map((currency) => Text(currency)).toList();
+    return CupertinoPicker(
+      itemExtent: 32.0,
+      backgroundColor: Colors.lightBlue,
+      onSelectedItemChanged: (selectedIndex) {
+      },
+      children: items,
+    );
+  }
+
+  Widget getPicker() {
+    if (Platform.isIOS) {
+      return getiOSPicker();
+    } else if (Platform.isAndroid) {
+      return getAndroidDropdown();
+    }
+    return null;
   }
 
   @override
@@ -59,22 +86,7 @@ class _PriceScreenState extends State<PriceScreen> {
             alignment: Alignment.center,
             padding: EdgeInsets.only(bottom: 30.0),
             color: Colors.lightBlue,
-//            child: DropdownButton<String>(
-//              onChanged: (String value) {
-//                setState(() {
-//                  selectedCurrency = value;
-//                });
-//              },
-//              value: selectedCurrency,
-//              items: getDropdownItems(),
-//            ),
-            child: CupertinoPicker(
-              itemExtent: 32.0,
-              backgroundColor: Colors.lightBlue,
-              onSelectedItemChanged: (selectedIndex) {
-              },
-              children: getPickerItems(),
-            ),
+            child: getPicker(),
           ),
         ],
       ),
