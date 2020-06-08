@@ -56,7 +56,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
                   ),
                 ),
                 TypewriterAnimatedTextKit(
-                  text: ['Flash Chat'],
+                  text: ['플래시 챗'],
                   textStyle: TextStyle(
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
