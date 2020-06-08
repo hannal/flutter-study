@@ -1,16 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flashchat/screens/welcome_screen.dart';
+import 'package:flashchat/screens/login_screen.dart';
+import 'package:flashchat/screens/registration_screen.dart';
+import 'package:flashchat/screens/chat_screen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(FlashChat());
 
-class MyApp extends StatelessWidget {
+class FlashChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flash chat',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: ThemeData.dark().copyWith(
+        textTheme: TextTheme(
+          body1: TextStyle(color: Colors.black54),
+        ),
       ),
-      home: null,
+      initialRoute: 'welcome',
+      routes: {
+        'welcome': (context) => WelcomeScreen(),
+        'login': (context) => LoginScreen(),
+        'registration': (context) => RegistrationScreen(),
+        'chat': (context) => ChatScreen(),
+      },
     );
   }
 }
