@@ -22,13 +22,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
     animation = CurvedAnimation(parent: controller, curve: Curves.easeIn);
 
     controller.forward();
-    animation.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        controller.reverse(from: 1.0);
-      } else if (status == AnimationStatus.dismissed) {
-        controller.forward();
-      }
-    });
 
     controller.addListener(() {
       setState(() {});
