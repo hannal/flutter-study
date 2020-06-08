@@ -46,4 +46,11 @@ class WeatherModel {
     );
     return await networkHelper.getData();
   }
+
+  Future<dynamic> getCityWeather(String name) async {
+    NetworkHelper networkHelper = NetworkHelper(
+        '$openWeatherMapURL?appid=$owmAppKey&q=$name&units=metric'
+    );
+    return await networkHelper.getData();
+  }
 }
