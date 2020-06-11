@@ -37,6 +37,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 48.0,
               ),
               TextField(
+                keyboardType: TextInputType.emailAddress,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
                   email = value;
@@ -47,6 +48,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 8.0,
               ),
               TextField(
+                obscureText: true,
                 textAlign: TextAlign.center,
                 onChanged: (value) {
                   password = value;
