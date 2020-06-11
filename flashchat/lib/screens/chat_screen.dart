@@ -15,9 +15,9 @@ class _ChatScreenState extends State<ChatScreen> {
   FirebaseUser loggedInUser;
 
   @override
-  void initState() {
+  void initState() async {
     super.initState();
-    getCurrentUser();
+    await getCurrentUser();
     print(loggedInUser.email);
   }
 
