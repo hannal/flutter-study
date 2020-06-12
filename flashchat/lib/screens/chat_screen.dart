@@ -11,10 +11,10 @@ class ChatScreen extends StatefulWidget {
 }
 
 final _firestore = Firestore.instance;
+final _auth = FirebaseAuth.instance;
 
 class _ChatScreenState extends State<ChatScreen> {
   final messageTextController = TextEditingController();
-  final _auth = FirebaseAuth.instance;
   FirebaseUser loggedInUser;
   String messageText;
 
@@ -74,32 +74,6 @@ class _ChatScreenState extends State<ChatScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             MessageStream(),
-            StreamBuilder<QuerySnapshot>(
-              stream: _firestore.collection('messages').snapshots(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return Center(
-                    child: CircularProgressIndicator(
-                      backgroundColor: Colors.lightBlueAccent,
-                    ),
-                  );
-                }
-                final messages = snapshot.data.documents;
-                List<MessageBubble> messageBubbles = [];
-                messages.forEach((message) {
-                  messageBubbles.add(MessageBubble(
-                    sender: message.data['sender'],
-                    text: message.data['text'],
-                  ));
-                });
-                return Expanded(
-                  child: ListView(
-                    padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
-                    children: messageBubbles,
-                  ),
-                );
-              },
-            ),
             Container(
               decoration: kMessageContainerDecoration,
               child: Row(
@@ -140,7 +114,32 @@ class _ChatScreenState extends State<ChatScreen> {
 class MessageStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return             StreamBuilder<QuerySnapshot>(
+      stream: _firestore.collection('messages').snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return Center(
+            child: CircularProgressIndicator(
+              backgroundColor: Colors.lightBlueAccent,
+            ),
+          );
+        }
+        final messages = snapshot.data.documents;
+        List<MessageBubble> messageBubbles = [];
+        messages.forEach((message) {
+          messageBubbles.add(MessageBubble(
+            sender: message.data['sender'],
+            text: message.data['text'],
+          ));
+        });
+        return Expanded(
+          child: ListView(
+            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 20.0),
+            children: messageBubbles,
+          ),
+        );
+      },
+    );
   }
 }
 
