@@ -10,7 +10,11 @@ class TaskTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text('This is a task'),
-      trailing: Checkbox(value: false, onChanged: (value) {},),
+      trailing: Checkbox(
+        activeColor: Colors.lightBlueAccent,
+        value: false,
+        onChanged: (value) {},
+      ),
     );
   }
 }
