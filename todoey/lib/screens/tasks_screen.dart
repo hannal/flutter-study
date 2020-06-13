@@ -4,15 +4,6 @@ import 'package:todoey/widgets/tasks_list.dart';
 
 class TasksScreen extends StatelessWidget {
 
-  Widget buildBottomSheet(BuildContext context) => Container(
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-      ],
-    ),
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
