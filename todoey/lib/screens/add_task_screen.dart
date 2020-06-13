@@ -19,9 +19,11 @@ class AddTaskScreen extends StatelessWidget {
           ),
         ),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
               'Add task',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 30.0,
                 color: Colors.lightBlueAccent,
@@ -32,8 +34,9 @@ class AddTaskScreen extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             FlatButton(
-              child: Text('Add'),
+              child: Text('Add', style: TextStyle(color: Colors.white)),
               color: Colors.lightBlueAccent,
+              onPressed: () {},
             ),
           ],
         ),
