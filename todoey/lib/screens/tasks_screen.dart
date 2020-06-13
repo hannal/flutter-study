@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:todoey/widgets/tasks_list.dart';
+
 class TasksScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -66,33 +68,5 @@ class TasksScreen extends StatelessWidget {
   }
 }
 
-class TaskList extends StatelessWidget {
-  const TaskList({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView(
-      children: <Widget>[
-        TaskTile(),
-      ],
-    );
-  }
-}
-
-class TaskTile extends StatelessWidget {
-  const TaskTile({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      title: Text('This is a task'),
-      trailing: Checkbox(value: false, onChanged: (value) {},),
-    );
-  }
-}
 
 
