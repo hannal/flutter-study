@@ -14,8 +14,11 @@ class TaskList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: tasks.map((task) => TaskTile(name: task.name, isChecked: task.isDone)).toList(),
-    );
+    return ListView.builder(itemBuilder: (context, index) {
+      return TaskTile(
+        name: tasks[index].name,
+        isChecked: tasks[index].isDone,
+      );
+    }, itemCount: tasks.length,);
   }
 }
