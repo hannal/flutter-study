@@ -22,7 +22,7 @@ class TaskList extends StatelessWidget {
               },
             );
           },
-          itemCount: taskData.tasks.length,
+          itemCount: taskData.taskCount,
         );
       },
     );
