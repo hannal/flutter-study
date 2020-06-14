@@ -10,11 +10,7 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  List<Task> tasks = [
-    Task(name: '첫 번째 할 일'),
-    Task(name: '두 번째 할 일', isDone: true),
-    Task(name: '세 번째 할 일'),
-  ];
+  List<Task> tasks = [];
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +24,11 @@ class _TasksScreenState extends State<TasksScreen> {
             // https://www.appbrewery.co/courses/548873/lectures/13724902
             builder: (BuildContext context) => SingleChildScrollView(
               padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-              child: AddTaskScreen(),
+              child: AddTaskScreen((taskName) {
+                setState(() {
+                  tasks.add(Task(name: taskName));
+                });
+              }),
             ),
           );
         },
