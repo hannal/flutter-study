@@ -5,7 +5,7 @@ import 'task.dart';
 
 class TaskData extends ChangeNotifier {
   List<Task> _tasks = [];
-
+  List<Task> get tasks => _tasks;
   int get taskCount => _tasks.length;
 
   void addTask(String name) {
